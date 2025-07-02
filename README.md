@@ -17,3 +17,9 @@ tar -xzf ingress-nginx-4.12.3.tgz
 kubectl create ns ingress-nginx
 helm -n ingress-nginx install ingress-nginx -f ingress-nginx/values.yaml ingress-nginx
 ```
+
+# docker build and push
+
+docker buildx build \  
+ -t trandiepphuongdev/ecommerce-frontend:v2 \
+ --push .
