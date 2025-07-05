@@ -23,3 +23,15 @@ helm -n ingress-nginx install ingress-nginx -f ingress-nginx/values.yaml ingress
 docker buildx build \  
  -t trandiepphuongdev/ecommerce-frontend:v2 \
  --push .
+
+# install metric-server
+```
+helm repo add  metric-server https://kubernetes-sigs.github.io/metrics-server/
+helm pull metric-server/metrics-server
+tar -xvf metrics-server-*
+helm install metric-server metrics-server -n kube-system
+```
+
+horizontal-pod-autoscaler-upscale-delay: Khoảng thời gian tối thiểu giữa các lần scale up (mặc định là 3 phút).
+horizontal-pod-autoscaler-downscale-delay: Khoảng thời gian tối thiểu giữa các lần scale down (mặc định là 5 phút).
+horizontal-pod-autoscaler-sync-period: Chu kỳ mà HPA kiểm tra lại tài nguyên và cập nhật trạng thái (mặc định là 15 giây).
