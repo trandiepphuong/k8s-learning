@@ -19,11 +19,11 @@ helm -n ingress-nginx install ingress-nginx -f ingress-nginx/values.yaml ingress
 ```
 
 # docker build and push
-
+```
 docker buildx build \  
  -t trandiepphuongdev/ecommerce-frontend:v2 \
  --push .
-
+```
 # install metric-server
 ```
 helm repo add  metric-server https://kubernetes-sigs.github.io/metrics-server/
