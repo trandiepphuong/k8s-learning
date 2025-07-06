@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   rancher:
-    image: rancher/rancher:v2.11.2
+    image: rancher/rancher:v2.11.3
     container_name: rancher-server
     restart: unless-stopped
     ports:
-      - '80:80' # HTTP UI
-      - '1503:443' # HTTPS UI
+      - '20080:80' # HTTP UI
+      - '20443:443' # HTTPS UI
     volumes:
       - rancher-data:/var/lib/rancher
     environment:
