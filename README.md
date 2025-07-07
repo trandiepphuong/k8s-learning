@@ -35,3 +35,15 @@ helm install metric-server metrics-server -n kube-system
 horizontal-pod-autoscaler-upscale-delay: Khoảng thời gian tối thiểu giữa các lần scale up (mặc định là 3 phút).
 horizontal-pod-autoscaler-downscale-delay: Khoảng thời gian tối thiểu giữa các lần scale down (mặc định là 5 phút).
 horizontal-pod-autoscaler-sync-period: Chu kỳ mà HPA kiểm tra lại tài nguyên và cập nhật trạng thái (mặc định là 15 giây).
+
+# install nfs-server
+```
+sudo apt install nfs-server -y
+sudo mkdir /data
+sudo chown -R nobody:nogroup /data
+sudo chmod -R 777 /data
+sudo vi /etc/exports
+# add line ====>     /data *(rw,sync,no_subtree_check)
+sudo exportfs -rav
+sudo systemctl restart nfs-server
+```
